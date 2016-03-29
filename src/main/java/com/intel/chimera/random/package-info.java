@@ -15,22 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.intel.chimera.random;
-
 /**
- * JNI interface of {@link SecureRandom} implementation. The native method in this class is defined in OpensslSecureRandomNative.h(genereted by javah).
+ * Random classes
  */
-public class OpensslSecureRandomNative {
-  /**
-   * Declares a native method to initialize SR.
-   */
-  public native static void initSR();
-
-  /**
-   * Generates a user-specified number of random bytes.
-   * It's thread-safe.
-   *
-   * @param bytes the array to be filled in with random bytes.
-   */
-  public native static boolean nextRandBytes(byte[] bytes); 
-}
+package com.intel.chimera.random;

@@ -34,6 +34,10 @@ public class JavaSecureRandom implements SecureRandom {
 
   private java.security.SecureRandom instance;
 
+  /**
+   * Constructs a {@link com.intel.chimera.random.JavaSecureRandom}
+   * @param properties  the configuration properties
+   */
   public JavaSecureRandom(Properties properties) {
     try {
       instance = java.security.SecureRandom
@@ -45,11 +49,20 @@ public class JavaSecureRandom implements SecureRandom {
     }
   }
 
+  /**
+   * Overrides {@link java.lang.AutoCloseable#close()}
+   *
+   */
   @Override
   public void close() {
     // do nothing
   }
 
+  /**
+   * Overrides {@link com.intel.chimera.random.SecureRandom#nextBytes(byte[])}
+   *
+   * @param bytes the array to be filled in with random bytes.
+   */
   @Override
   public void nextBytes(byte[] bytes) {
     instance.nextBytes(bytes);

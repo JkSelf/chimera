@@ -59,10 +59,17 @@ public class OpensslSecureRandom extends Random implements SecureRandom {
     }
   }
 
+  /**
+   * judge whether to need nativecode Load
+   */
   public static boolean isNativeCodeLoaded() {
     return nativeEnabled;
   }
 
+  /**
+   * Constructs a {@link com.intel.chimera.random.OpensslSecureRandom}
+   * @param props the configuration properties
+   */
   public OpensslSecureRandom(Properties props) {
     if (!nativeEnabled) {
       fallback = new JavaSecureRandom(props);
@@ -82,14 +89,18 @@ public class OpensslSecureRandom extends Random implements SecureRandom {
     }
   }
 
+  /**
+   * Overrides {@link java.util.Random# setSeed()}
+   *
+   * @param seed the initial seed
+   */
   @Override
   public void setSeed(long seed) {
     // Self-seeding.
   }
 
   /**
-   * Generates an integer containing the user-specified number of
-   * random bits (right justified, with leading zeros).
+   * Overrides {@link java.util.Random# next()}
    *
    * @param numBits number of random bits to be generated, where
    * 0 <= <code>numBits</code> <= 32.
@@ -112,6 +123,10 @@ public class OpensslSecureRandom extends Random implements SecureRandom {
     return next >>> (numBytes * 8 - numBits);
   }
 
+  /**
+   * Overrides {@link java.lang.AutoCloseable#close()}
+   *
+   */
   @Override
   public void close() {
     if (!nativeEnabled && fallback !=null) {
