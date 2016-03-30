@@ -35,6 +35,15 @@ public class StreamInput implements Input {
     this.bufferSize = bufferSize;
   }
 
+  /**
+   * Reads a sequence of bytes from input into the given buffer.
+   *
+   * @param  dst
+   *         The buffer into which bytes are to be transferred
+   *
+   * @throws  IOException
+   *          If some other I/O error occurs
+   */
   @Override
   public int read(ByteBuffer dst) throws IOException {
     int remaining = dst.remaining();
@@ -56,16 +65,41 @@ public class StreamInput implements Input {
     return read;
   }
 
+  /**
+   * Skips over and discards <code>n</code> bytes of data from this input
+   *
+   * @param      n   the number of bytes to be skipped.
+   * @return     the actual number of bytes skipped.
+   * @exception  IOException  if the stream does not support seek,
+   *                          or if some other I/O error occurs.
+   */
   @Override
   public long skip(long n) throws IOException {
     return in.skip(n);
   }
 
+  /**
+   * Returns an estimate of the number of bytes that can be read (or
+   * skipped over) from this input without blocking by the next
+   * invocation of a method for this input stream. The next invocation
+   * might be the same thread or another thread.  A single read or skip of this
+   * many bytes will not block, but may read or skip fewer bytes.
+   *
+   * @return     an estimate of the number of bytes that can be read (or skipped
+   *             over) from this input stream without blocking or {@code 0} when
+   *             it reaches the end of the input stream.
+   * @exception  IOException if an I/O error occurs.
+   */
   @Override
   public int available() throws IOException {
     return in.available();
   }
 
+  /**
+   * Read upto the specified number of bytes from a given position within a
+   * stream and return the number of bytes read.
+   * This does not change the current offset of the stream and is thread-safe.
+   */
   @Override
   public int read(long position, byte[] buffer, int offset, int length)
       throws IOException {
@@ -73,12 +107,22 @@ public class StreamInput implements Input {
         "Positioned read is not supported by this implementation");
   }
 
+  /**
+   * Seek to the given offset from the start of the stream.
+   * The next read() will be from that location.
+   */
   @Override
   public void seek(long pos) throws IOException {
     throw new UnsupportedOperationException(
         "Seek is not supported by this implementation");
   }
 
+  /**
+   * Closes this input and releases any system resources associated
+   * with the under layer input.
+   *
+   * @exception  IOException  if an I/O error occurs.
+   */
   @Override
   public void close() throws IOException {
     in.close();

@@ -29,16 +29,16 @@ import static com.intel.chimera.conf.ConfigurationKeys
     .CHIMERA_CRYPTO_SECURE_RANDOM_CLASSES_KEY;
 
 /**
- * This is the factory class used for SecureRandom class
+ * This is the factory class used for {@link SecureRandom}.
  */
 public class SecureRandomFactory {
   public final static Logger LOG = LoggerFactory
       .getLogger(SecureRandomFactory.class);
 
   /**
-   * Get a SecureRandom instance for specified props.
+   * Gets a SecureRandom instance for specified props.
    *
-   * @param props the configuration properties
+   * @param props the configuration properties.
    * @return SecureRandom the secureRandom object.Null value will be returned if no
    *         SecureRandom classes with props.
    */

@@ -26,7 +26,7 @@ import org.apache.commons.logging.LogFactory;
 import com.intel.chimera.conf.ConfigurationKeys;
 
 /**
- * A SecureRandom of Java implementation
+ * A SecureRandom of Java implementation.
  */
 public class JavaSecureRandom implements SecureRandom {
   private static final Log LOG =
@@ -35,8 +35,9 @@ public class JavaSecureRandom implements SecureRandom {
   private java.security.SecureRandom instance;
 
   /**
-   * Constructs a {@link com.intel.chimera.random.JavaSecureRandom}
-   * @param properties  the configuration properties
+   * Constructs a {@link com.intel.chimera.random.JavaSecureRandom}.
+   *
+   * @param properties the configuration properties.
    */
   public JavaSecureRandom(Properties properties) {
     try {
@@ -50,8 +51,8 @@ public class JavaSecureRandom implements SecureRandom {
   }
 
   /**
-   * Overrides {@link java.lang.AutoCloseable#close()}
-   *
+   * Overrides {@link java.lang.AutoCloseable#close()}.
+   * For{@link JavaSecureRandom}, we don't need to recycle resource.
    */
   @Override
   public void close() {
@@ -59,7 +60,9 @@ public class JavaSecureRandom implements SecureRandom {
   }
 
   /**
-   * Overrides {@link com.intel.chimera.random.SecureRandom#nextBytes(byte[])}
+   * Overrides {@link com.intel.chimera.random.SecureRandom#nextBytes(byte[])}.
+   * Generates random bytes and places them into a user-supplied byte array.
+   * The number of random bytes produced is equal to the length of the byte array.
    *
    * @param bytes the array to be filled in with random bytes.
    */
