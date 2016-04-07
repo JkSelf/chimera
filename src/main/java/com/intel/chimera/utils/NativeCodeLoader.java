@@ -133,7 +133,7 @@ public class NativeCodeLoader {
    * @param libraryFileName the library name.
    * @param targetFolder Target folder for the native lib. Use the value of
    *                     chimera.tempdir or java.io.tmpdir.
-   * @return return the library file.
+   * @return the library file.
    */
   private static File extractLibraryFile(String libFolderForCurrentOS,
       String libraryFileName, String targetFolder) {

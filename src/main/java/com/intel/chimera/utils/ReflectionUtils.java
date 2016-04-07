@@ -25,6 +25,9 @@ import java.util.WeakHashMap;
 
 import com.intel.chimera.cipher.Cipher;
 
+/**
+ * General utility methods for working with reflection.
+ */
 public class ReflectionUtils {
 
   private static final Map<ClassLoader, Map<String, WeakReference<Class<?>>>>
@@ -89,7 +92,7 @@ public class ReflectionUtils {
    * returned.An exception is thrown if the returned class does not
    * implement the named interface.
    * 
-   * @param name the class name.
+   * @param name the class name of default implementation.
    * @param defaultValue default value.
    * @param xface the interface implemented by the named class.
    * @return property value as a <code>Class</code>, 

@@ -28,33 +28,27 @@ public class OSInfo {
   private static HashMap<String, String> archMapping = new HashMap<String, String>();
 
   /**
-   * The string for X86.
-   */
+   * The constant string represents for X86 architecture, the value is: {@value #X86}.*/
   public static final String X86 = "x86";
 
   /**
-   * The string for X86_64.
-   */
+   * The constant string represents for X86_64 architecture, the value is:{@value #X86_64}.*/
   public static final String X86_64 = "x86_64";
 
   /**
-   * The string for IA64_32.
-   */
+   * The constant string represents for IA64_32 architecture, the value is:{@value #IA64_32}.*/
   public static final String IA64_32 = "ia64_32";
 
   /**
-   * The string for IA64.
-   */
+   * The constant string represents for IA64 architecture, the value is:{@value #IA64}.*/
   public static final String IA64 = "ia64";
 
   /**
-   * The string for PPC.
-   */
+   * The constant string represents for PPC architecture, the value is:{@value #PPC}.*/
   public static final String PPC = "ppc";
 
   /**
-   * The string for "PPC64".
-   */
+   * The constant string represents for PPC64 architecture, the value is:{@value #PPC64}.*/
   public static final String PPC64 = "ppc64";
 
   static {
@@ -112,7 +106,7 @@ public class OSInfo {
   /**
    * Gets the native lib folder.
    *
-   * @return return the current OS's native lib folder.
+   * @return the current OS's native lib folder.
    */
   public static String getNativeLibFolderPathForCurrentOS() {
     return getOSName() + "/" + getArchName();
@@ -121,16 +115,16 @@ public class OSInfo {
   /**
    * Gets the OS name.
    *
-   * @return return the OS name.
+   * @return the OS name.
    */
   public static String getOSName() {
     return translateOSNameToFolderName(System.getProperty("os.name"));
   }
 
   /**
-   * Gets the arch name.
+   * Gets the architecture name.
    *
-   * @return return the arch name.
+   * @return the architecture name.
    */
   public static String getArchName() {
     // if running Linux on ARM, need to determine ABI of JVM
@@ -185,9 +179,9 @@ public class OSInfo {
   }
 
   /**
-   * Translates the archname to folder name.
+   * Translates the architecture name to folder name.
    *
-   * @param archName the archname.
+   * @param archName the architecture name.
    * @return the folder name.
    */
   static String translateArchNameToFolderName(String archName) {

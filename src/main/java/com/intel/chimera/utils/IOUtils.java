@@ -23,6 +23,9 @@ import java.io.InputStream;
 import com.intel.chimera.input.Input;
 import org.apache.commons.logging.Log;
 
+/**
+ * General utility methods for working with IO.
+ */
 public class IOUtils {
 
   /**

@@ -42,6 +42,9 @@ import static com.intel.chimera.conf.ConfigurationKeys.CHIMERA_CRYPTO_SECURE_RAN
 import static com.intel.chimera.conf.ConfigurationKeys.CHIMERA_SYSTEM_PROPERTIES_FILE;
 import static com.intel.chimera.conf.ConfigurationKeys.CHIMERA_CRYPTO_LIB_TEMPDIR_KEY;
 
+/**
+ * General utility methods.
+ */
 public class Utils {
   private static final int MIN_BUFFER_SIZE = 512;
 
@@ -58,7 +61,7 @@ public class Utils {
   }
 
   /**
-   * load system properties when configuration file of the name
+   * loads system properties when configuration file of the name
    * {@link #CHIMERA_SYSTEM_PROPERTIES_FILE} is found.
    */
   private static void loadChimeraSystemProperties() {
@@ -89,9 +92,9 @@ public class Utils {
     }
   }
 
-   /**
+  /**
    * Forcibly free the direct buffer.
-    *
+   *
    * @param buffer the bytebuffer to be freed.
    */
   public static void freeDirectBuffer(ByteBuffer buffer) {
@@ -107,7 +110,7 @@ public class Utils {
    *
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @return return the buffer size.
+   * @return the buffer size.
    * */
   public static int getBufferSize(Properties props) {
     String bufferSizeStr = props.getProperty(
@@ -128,7 +131,7 @@ public class Utils {
    *
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @return return the cipher class based on the props.
+   * @return the cipher class based on the props.
    */
   public static String getCipherClassString(Properties props) {
     final String configName = CHIMERA_CRYPTO_CIPHER_CLASSES_KEY;
@@ -141,7 +144,7 @@ public class Utils {
    *
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @return return the jce provider based on the props.
+   * @return the jce provider based on the props.
    */
   public static String getJCEProvider(Properties props) {
     return props.getProperty(CHIMERA_CRYPTO_CIPHER_JCE_PROVIDER_KEY) != null ?
@@ -154,7 +157,7 @@ public class Utils {
    *
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @return return the random device path based on the props.
+   * @return the random device path based on the props.
    */
   public static String getRandomDevPath(Properties props) {
     String devPath = props.getProperty(
@@ -168,27 +171,27 @@ public class Utils {
   }
 
   /**
-   * Gets the lib path.
+   * Gets path of native library.
    *
-   * @return return the lib path.
+   * @return the path of native library.
    */
   public static String getLibPath() {
     return System.getProperty(CHIMERA_CRYPTO_LIB_PATH_KEY);
   }
 
   /**
-   * Gets the lib name.
+   * Gets the file name of native library.
    *
-   * @return return the lib name.
+   * @return the file name of native library.
    */
   public static String getLibName() {
     return System.getProperty(CHIMERA_CRYPTO_LIB_NAME_KEY);
   }
 
   /**
-   * Gets the temp directory.
+   * Gets the temp directory for extracting crypto library.
    *
-   * @return return the temp directory.
+   * @return the temp directory.
    */
   public static String getTmpDir() {
     return System.getProperty(CHIMERA_CRYPTO_LIB_TEMPDIR_KEY,
@@ -196,7 +199,7 @@ public class Utils {
   }
 
   /**
-   * Checks whether the cipher is AES/CTR/NoPadding.
+   * Checks whether the cipher is supported streaming.
    *
    * @param cipher the {@link com.intel.chimera.cipher.Cipher} instance.
    * @throws IOException if an I/O error occurs.
@@ -263,6 +266,7 @@ public class Utils {
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
    * @param transformation the CipherTransformation instance.
+   * @return the Cipher instance.
    * @throws IOException if an I/O error occurs.
    */
   public static Cipher getCipherInstance(CipherTransformation transformation,
@@ -338,7 +342,7 @@ public class Utils {
    * @param clazzNames a string consist of a list of the entries joined by a
    *                   delimiter.
    * @param separator  a delimiter for the input string.
-   * @return a list of entries.
+   * @return a list of class entries.
    */
   public static List<String> splitClassNames(String clazzNames,
       String separator) {
