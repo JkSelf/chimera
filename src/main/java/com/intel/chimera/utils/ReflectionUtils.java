@@ -46,10 +46,21 @@ public class ReflectionUtils {
 
   /**
    * A unique class which is used as a sentinel value in the caching
-   * for getClassByName. {@link Cipher#getClassByNameOrNull(String)}
+   * for getClassByName. {@link Cipher#getClassByNameOrNull(String)}.
    */
   private static abstract class NegativeCacheSentinel {}
 
+  /**
+   * Uses the constructor represented by this {@code Constructor} object to
+   * create and initialize a new instance of the constructor's
+   * declaring class, with the specified initialization parameters.
+   *
+   * @param klass the Class object.
+   * @param args array of objects to be passed as arguments to
+   *             the constructor call.
+   * @return a new object created by calling the constructor
+   *            this object represents.
+   */
   @SuppressWarnings("rawtypes")
   public static <T> T newInstance(Class<T> klass, Object ... args) {
     try {
@@ -72,14 +83,11 @@ public class ReflectionUtils {
   }
 
   /** 
-   * Get the value of the <code>name</code> property as a <code>Class</code>
+   * Gets the value of the <code>name</code> property as a <code>Class</code>
    * implementing the interface specified by <code>xface</code>.
-   *   
    * If no such property is specified, then <code>defaultValue</code> is 
-   * returned.
-   * 
-   * An exception is thrown if the returned class does not implement the named
-   * interface. 
+   * returned.An exception is thrown if the returned class does not
+   * implement the named interface.
    * 
    * @param name the class name.
    * @param defaultValue default value.
@@ -110,7 +118,7 @@ public class ReflectionUtils {
   }
 
   /** 
-   * Get the value of the <code>name</code> property as a <code>Class</code>.  
+   * Gets the value of the <code>name</code> property as a <code>Class</code>.
    * If no such property is specified, then <code>defaultValue</code> is 
    * returned.
    * 
@@ -131,7 +139,7 @@ public class ReflectionUtils {
   }
 
   /**
-   * Load a class by name.
+   * Loads a class by name.
    * 
    * @param name the class name.
    * @return the class object.
@@ -147,11 +155,11 @@ public class ReflectionUtils {
   }
   
   /**
-   * Load a class by name, returning null rather than throwing an exception
+   * Loads a class by name, returning null rather than throwing an exception
    * if it couldn't be loaded. This is to avoid the overhead of creating
    * an exception.
    * 
-   * @param name the class name
+   * @param name the class name.
    * @return the class object, or null if it could not be found.
    */
   private static Class<?> getClassByNameOrNull(String name) {

@@ -27,11 +27,34 @@ import java.util.Locale;
 public class OSInfo {
   private static HashMap<String, String> archMapping = new HashMap<String, String>();
 
+  /**
+   * The string for X86.
+   */
   public static final String X86 = "x86";
+
+  /**
+   * The string for X86_64.
+   */
   public static final String X86_64 = "x86_64";
+
+  /**
+   * The string for IA64_32.
+   */
   public static final String IA64_32 = "ia64_32";
+
+  /**
+   * The string for IA64.
+   */
   public static final String IA64 = "ia64";
+
+  /**
+   * The string for PPC.
+   */
   public static final String PPC = "ppc";
+
+  /**
+   * The string for "PPC64".
+   */
   public static final String PPC64 = "ppc64";
 
   static {
@@ -86,14 +109,29 @@ public class OSInfo {
     System.out.print(getNativeLibFolderPathForCurrentOS());
   }
 
+  /**
+   * Gets the native lib folder.
+   *
+   * @return return the current OS's native lib folder.
+   */
   public static String getNativeLibFolderPathForCurrentOS() {
     return getOSName() + "/" + getArchName();
   }
 
+  /**
+   * Gets the OS name.
+   *
+   * @return return the OS name.
+   */
   public static String getOSName() {
     return translateOSNameToFolderName(System.getProperty("os.name"));
   }
 
+  /**
+   * Gets the arch name.
+   *
+   * @return return the arch name.
+   */
   public static String getArchName() {
     // if running Linux on ARM, need to determine ABI of JVM
     String osArch = System.getProperty("os.arch");
@@ -124,6 +162,12 @@ public class OSInfo {
     return translateArchNameToFolderName(osArch);
   }
 
+  /**
+   * Translates the OS name to folder name.
+   *
+   * @param osName the OS name.
+   * @return the folder name.
+   */
   static String translateOSNameToFolderName(String osName) {
     if (osName.contains("Windows")) {
       return "Windows";
@@ -140,6 +184,12 @@ public class OSInfo {
     }
   }
 
+  /**
+   * Translates the archname to folder name.
+   *
+   * @param archName the archname.
+   * @return the folder name.
+   */
   static String translateArchNameToFolderName(String archName) {
     return archName.replaceAll("\\W", "");
   }
