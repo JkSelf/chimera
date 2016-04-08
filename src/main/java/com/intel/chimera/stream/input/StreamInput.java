@@ -30,6 +30,12 @@ public class StreamInput implements Input {
   private int bufferSize;
   InputStream in;
 
+  /**
+   * Constructs a {@link com.intel.chimera.stream.input.StreamInput}.
+   *
+   * @param inputStream the inputstream object.
+   * @param bufferSize the buffersize.
+   */
   public StreamInput(InputStream inputStream, int bufferSize) {
     this.in = inputStream;
     this.bufferSize = bufferSize;
