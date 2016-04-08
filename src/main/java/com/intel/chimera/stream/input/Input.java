@@ -43,10 +43,12 @@ public interface Input {
    * <i>p</i>&nbsp;<tt>+</tt>&nbsp;<i>n</i>; its limit will not have changed.
    *
    * @param  dst
-   *         The buffer into which bytes are to be transferred
-   *
+   *         The buffer into which bytes are to be transferred.
+   * @return the total number of bytes read into the buffer, or
+   *         <code>-1</code> if there is no more data because the end of
+   *         the stream has been reached.
    * @throws  IOException
-   *          If some other I/O error occurs
+   *          If some other I/O error occurs.
    */
   int read(ByteBuffer dst) throws IOException;
 
@@ -65,7 +67,7 @@ public interface Input {
    * encouraged to provide a more efficient implementation of this method.
    * For instance, the implementation may depend on the ability to seek.
    *
-   * @param      n   the number of bytes to be skipped.
+   * @param      n the number of bytes to be skipped.
    * @return     the actual number of bytes skipped.
    * @exception  IOException  if the stream does not support seek,
    *                          or if some other I/O error occurs.
