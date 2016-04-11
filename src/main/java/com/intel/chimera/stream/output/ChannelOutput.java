@@ -30,7 +30,7 @@ public class ChannelOutput implements Output {
   private WritableByteChannel channel;
 
   /**
-   * Constructors a {@link com.intel.chimera.stream.output.ChannelOutput}.
+   * Constructs a {@link com.intel.chimera.stream.output.ChannelOutput}.
    *
    * @param channel the WritableByteChannel object.
    */
