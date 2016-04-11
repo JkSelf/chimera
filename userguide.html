@@ -305,9 +305,9 @@
               // Default value is com.intel.chimera.crypto.JceCipher<br />
               properties.setProperty(&quot;chimera.crypto.cipher.classes&quot;, &quot;com.intel.chimera.crypto.OpensslCipher,com.intel.chimera.crypto.JceCipher&quot;);<br />
               Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br /><br />
-              // Available key length is: 16, 24, 32 bytes
+              // Available key length is: 16, 24, 32 bytes<br />
               byte[] key = new byte[16];<br />
-              // IV length is always 16 bytes
+              // IV length is always 16 bytes<br />
               byte[] iv = new byte[16];<br />
               // 1 represents encryption ;0 represents decryption<br />
               int mode = 1;<br />
