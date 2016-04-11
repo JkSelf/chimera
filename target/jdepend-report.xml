@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<JDepend>
+    <Packages>
+
+        <Package name="com.intel.chimera.cipher">
+            <Stats>
+                <TotalClasses>10</TotalClasses>
+                <ConcreteClasses>9</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>3</Ca>
+                <Ce>10</Ce>
+                <A>0.1</A>
+                <I>0.77</I>
+                <D>0.13</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Cipher.java">
+                    com.intel.chimera.cipher.Cipher
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="CipherFactory.java">
+                    com.intel.chimera.cipher.CipherFactory
+                </Class>
+                <Class sourceFile="CipherTransformation.java">
+                    com.intel.chimera.cipher.CipherTransformation
+                </Class>
+                <Class sourceFile="JceCipher.java">
+                    com.intel.chimera.cipher.JceCipher
+                </Class>
+                <Class sourceFile="Openssl.java">
+                    com.intel.chimera.cipher.Openssl
+                </Class>
+                <Class sourceFile="Openssl.java">
+                    com.intel.chimera.cipher.Openssl$AlgorithmMode
+                </Class>
+                <Class sourceFile="Openssl.java">
+                    com.intel.chimera.cipher.Openssl$Padding
+                </Class>
+                <Class sourceFile="Openssl.java">
+                    com.intel.chimera.cipher.Openssl$Transform
+                </Class>
+                <Class sourceFile="OpensslCipher.java">
+                    com.intel.chimera.cipher.OpensslCipher
+                </Class>
+                <Class sourceFile="OpensslNative.java">
+                    com.intel.chimera.cipher.OpensslNative
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>com.intel.chimera.utils</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.nio</Package>
+                <Package>java.security</Package>
+                <Package>java.util</Package>
+                <Package>javax.crypto</Package>
+                <Package>javax.crypto.spec</Package>
+                <Package>org.apache.commons.logging</Package>
+                <Package>org.slf4j</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>com.intel.chimera.conf</Package>
+                <Package>com.intel.chimera.stream</Package>
+                <Package>com.intel.chimera.utils</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="com.intel.chimera.conf">
+            <Stats>
+                <TotalClasses>1</TotalClasses>
+                <ConcreteClasses>1</ConcreteClasses>
+                <AbstractClasses>0</AbstractClasses>
+                <Ca>1</Ca>
+                <Ce>2</Ce>
+                <A>0</A>
+                <I>0.67</I>
+                <D>0.33</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="ConfigurationKeys.java">
+                    com.intel.chimera.conf.ConfigurationKeys
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>com.intel.chimera.cipher</Package>
+                <Package>java.lang</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>com.intel.chimera.utils</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="com.intel.chimera.random">
+            <Stats>
+                <TotalClasses>6</TotalClasses>
+                <ConcreteClasses>5</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>0</Ca>
+                <Ce>7</Ce>
+                <A>0.17</A>
+                <I>1</I>
+                <D>0.17</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="SecureRandom.java">
+                    com.intel.chimera.random.SecureRandom
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="JavaSecureRandom.java">
+                    com.intel.chimera.random.JavaSecureRandom
+                </Class>
+                <Class sourceFile="OpensslSecureRandom.java">
+                    com.intel.chimera.random.OpensslSecureRandom
+                </Class>
+                <Class sourceFile="OpensslSecureRandomNative.java">
+                    com.intel.chimera.random.OpensslSecureRandomNative
+                </Class>
+                <Class sourceFile="OsSecureRandom.java">
+                    com.intel.chimera.random.OsSecureRandom
+                </Class>
+                <Class sourceFile="SecureRandomFactory.java">
+                    com.intel.chimera.random.SecureRandomFactory
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>com.intel.chimera.utils</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.security</Package>
+                <Package>java.util</Package>
+                <Package>org.apache.commons.logging</Package>
+                <Package>org.slf4j</Package>
+            </DependsUpon>
+
+            <UsedBy>
+            </UsedBy>
+        </Package>
+
+        <Package name="com.intel.chimera.stream">
+            <Stats>
+                <TotalClasses>6</TotalClasses>
+                <ConcreteClasses>6</ConcreteClasses>
+                <AbstractClasses>0</AbstractClasses>
+                <Ca>0</Ca>
+                <Ce>12</Ce>
+                <A>0</A>
+                <I>1</I>
+                <D>0</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="CTRCryptoInputStream.java">
+                    com.intel.chimera.stream.CTRCryptoInputStream
+                </Class>
+                <Class sourceFile="CTRCryptoOutputStream.java">
+                    com.intel.chimera.stream.CTRCryptoOutputStream
+                </Class>
+                <Class sourceFile="CryptoInputStream.java">
+                    com.intel.chimera.stream.CryptoInputStream
+                </Class>
+                <Class sourceFile="CryptoOutputStream.java">
+                    com.intel.chimera.stream.CryptoOutputStream
+                </Class>
+                <Class sourceFile="PositionedCryptoInputStream.java">
+                    com.intel.chimera.stream.PositionedCryptoInputStream
+                </Class>
+                <Class sourceFile="PositionedCryptoInputStream.java">
+                    com.intel.chimera.stream.PositionedCryptoInputStream$CipherState
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>com.intel.chimera.cipher</Package>
+                <Package>com.intel.chimera.stream.input</Package>
+                <Package>com.intel.chimera.stream.output</Package>
+                <Package>com.intel.chimera.utils</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.nio</Package>
+                <Package>java.nio.channels</Package>
+                <Package>java.security</Package>
+                <Package>java.util</Package>
+                <Package>java.util.concurrent</Package>
+                <Package>javax.crypto</Package>
+            </DependsUpon>
+
+            <UsedBy>
+            </UsedBy>
+        </Package>
+
+        <Package name="com.intel.chimera.stream.input">
+            <Stats>
+                <TotalClasses>3</TotalClasses>
+                <ConcreteClasses>2</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>2</Ca>
+                <Ce>4</Ce>
+                <A>0.33</A>
+                <I>0.67</I>
+                <D>0</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Input.java">
+                    com.intel.chimera.stream.input.Input
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="ChannelInput.java">
+                    com.intel.chimera.stream.input.ChannelInput
+                </Class>
+                <Class sourceFile="StreamInput.java">
+                    com.intel.chimera.stream.input.StreamInput
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.nio</Package>
+                <Package>java.nio.channels</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>com.intel.chimera.stream</Package>
+                <Package>com.intel.chimera.utils</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="com.intel.chimera.stream.output">
+            <Stats>
+                <TotalClasses>3</TotalClasses>
+                <ConcreteClasses>2</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>1</Ca>
+                <Ce>4</Ce>
+                <A>0.33</A>
+                <I>0.8</I>
+                <D>0.13</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="Output.java">
+                    com.intel.chimera.stream.output.Output
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="ChannelOutput.java">
+                    com.intel.chimera.stream.output.ChannelOutput
+                </Class>
+                <Class sourceFile="StreamOutput.java">
+                    com.intel.chimera.stream.output.StreamOutput
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.nio</Package>
+                <Package>java.nio.channels</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>com.intel.chimera.stream</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="com.intel.chimera.utils">
+            <Stats>
+                <TotalClasses>6</TotalClasses>
+                <ConcreteClasses>5</ConcreteClasses>
+                <AbstractClasses>1</AbstractClasses>
+                <Ca>3</Ca>
+                <Ce>14</Ce>
+                <A>0.17</A>
+                <I>0.82</I>
+                <D>0.01</D>
+                <V>1</V>
+            </Stats>
+
+            <AbstractClasses>
+                <Class sourceFile="ReflectionUtils.java">
+                    com.intel.chimera.utils.ReflectionUtils$NegativeCacheSentinel
+                </Class>
+            </AbstractClasses>
+
+            <ConcreteClasses>
+                <Class sourceFile="IOUtils.java">
+                    com.intel.chimera.utils.IOUtils
+                </Class>
+                <Class sourceFile="NativeCodeLoader.java">
+                    com.intel.chimera.utils.NativeCodeLoader
+                </Class>
+                <Class sourceFile="OSInfo.java">
+                    com.intel.chimera.utils.OSInfo
+                </Class>
+                <Class sourceFile="ReflectionUtils.java">
+                    com.intel.chimera.utils.ReflectionUtils
+                </Class>
+                <Class sourceFile="Utils.java">
+                    com.intel.chimera.utils.Utils
+                </Class>
+            </ConcreteClasses>
+
+            <DependsUpon>
+                <Package>com.intel.chimera.cipher</Package>
+                <Package>com.intel.chimera.conf</Package>
+                <Package>com.intel.chimera.stream.input</Package>
+                <Package>java.io</Package>
+                <Package>java.lang</Package>
+                <Package>java.lang.ref</Package>
+                <Package>java.lang.reflect</Package>
+                <Package>java.net</Package>
+                <Package>java.nio</Package>
+                <Package>java.security</Package>
+                <Package>java.util</Package>
+                <Package>org.apache.commons.logging</Package>
+                <Package>sun.misc</Package>
+                <Package>sun.nio.ch</Package>
+            </DependsUpon>
+
+            <UsedBy>
+                <Package>com.intel.chimera.cipher</Package>
+                <Package>com.intel.chimera.random</Package>
+                <Package>com.intel.chimera.stream</Package>
+            </UsedBy>
+        </Package>
+
+        <Package name="java.io">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.lang">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.lang.ref">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.lang.reflect">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.net">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.nio">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.nio.channels">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.security">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.util">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="java.util.concurrent">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="javax.crypto">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="javax.crypto.spec">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="org.apache.commons.logging">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="org.slf4j">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="sun.misc">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+
+        <Package name="sun.nio.ch">
+            <error>No stats available: package referenced, but not analyzed.</error>
+        </Package>
+    </Packages>
+
+    <Cycles>
+        <Package Name="com.intel.chimera.cipher">
+            <Package>com.intel.chimera.utils</Package>
+            <Package>com.intel.chimera.cipher</Package>
+        </Package>
+
+        <Package Name="com.intel.chimera.conf">
+            <Package>com.intel.chimera.cipher</Package>
+            <Package>com.intel.chimera.utils</Package>
+            <Package>com.intel.chimera.cipher</Package>
+        </Package>
+
+        <Package Name="com.intel.chimera.random">
+            <Package>com.intel.chimera.utils</Package>
+            <Package>com.intel.chimera.cipher</Package>
+            <Package>com.intel.chimera.utils</Package>
+        </Package>
+
+        <Package Name="com.intel.chimera.stream">
+            <Package>com.intel.chimera.cipher</Package>
+            <Package>com.intel.chimera.utils</Package>
+            <Package>com.intel.chimera.cipher</Package>
+        </Package>
+
+        <Package Name="com.intel.chimera.utils">
+            <Package>com.intel.chimera.cipher</Package>
+            <Package>com.intel.chimera.utils</Package>
+        </Package>
+
+    </Cycles>
+</JDepend>

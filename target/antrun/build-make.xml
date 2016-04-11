@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="make"  >
+<target name="make">
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath"/>
+  <exec dir="/home/jk/workspace/code/chimera_jk" executable="make" failonerror="true">
+    <arg value="all"/>
+  </exec>
+</target>
+</project>

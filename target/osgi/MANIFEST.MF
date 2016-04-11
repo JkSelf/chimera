@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1460360757595
+Build-Jdk: 1.7.0_79
+Built-By: root
+Bundle-Description: Apache Commons Crypto is a cryptographic library opt
+ imized with AES-NI (Advanced Encryption    Standard New Instructions). 
+ It provides Java API for both cipher level and Java stream level.    De
+ velopers can use it to implement high performance AES encryption/decryp
+ tion with the minimum    code and effort. Please note that Chimera does
+ n't implement the cryptographic algorithm such as    AES directly. It w
+ raps to Openssl or JCE which implement the algorithms.
+Bundle-DocURL: http://commons.apache.org/proper/commons-crypto
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Commons Crypto
+Bundle-SymbolicName: org.apache.commons.crypto
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Import-Package: javax.crypto,javax.crypto.spec,org.apache.commons.loggin
+ g,org.slf4j,sun.misc,sun.nio.ch
+Include-Resource: META-INF/LICENSE.txt=LICENSE.txt
+Private-Package: com.intel.chimera.cipher,com.intel.chimera.conf,com.int
+ el.chimera.native.Linux.x86_64,com.intel.chimera.random,com.intel.chime
+ ra.stream,com.intel.chimera.stream.input,com.intel.chimera.stream.outpu
+ t,com.intel.chimera.utils
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Tool: Bnd-2.3.0.201405100607
