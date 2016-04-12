@@ -24,12 +24,12 @@
         the minimum code and effort. Please note that Chimera doesn't implement the cryptographic
         algorithm such as AES directly. It wraps to Openssl or JCE which implement the algorithms.
       </p>
-      <subsection name="Example Title">
+      <subsection name="Interfaces Overview">
         <p>Interfaces and classes used by the various implementation in the sub-packages.</p>
         <table>
           <tr>
             <td width="150">
-              <a href="http://project.sundp.me/chimera/apidocs/index.html">cipher
+              <a href="apidocs/index.html">cipher
               </a>
             </td>
             <td>
@@ -39,7 +39,7 @@
 
           <tr>
             <td width="150">
-              <a href="http://project.sundp.me/chimera/apidocs/index.html">random
+              <a href="apidocs/index.html">random
               </a>
             </td>
             <td>
@@ -49,12 +49,11 @@
 
           <tr>
             <td width="150">
-              <a href="http://project.sundp.me/chimera/apidocs/index.html">stream
+              <a href="apidocs/index.html">stream
               </a>
             </td>
             <td>
-              The Input/Output interface abstract the input/output source of CryptoInputStream/CryptoOutputStream so that
-              different implementation of input/output can be used.
+              The interface wraps the underlying stream and it automatically encrypts the stream when data is written and decrypts the stream when data is read.
             </td>
           </tr>
 
