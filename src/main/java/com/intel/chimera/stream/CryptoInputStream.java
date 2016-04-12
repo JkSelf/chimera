@@ -419,7 +419,11 @@ public class CryptoInputStream extends InputStream implements
     return cipher;
   }
 
-  /** Initializes the cipher. */
+  /**
+   * Initializes the cipher.
+   *
+   * @throws IOException if an I/O error occurs.
+   */
   protected void initCipher()
       throws IOException {
     try {
