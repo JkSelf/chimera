@@ -79,7 +79,7 @@
               byte[] key = new byte[16];<br/>
               // IV length is always 16 bytes<br/>
               byte[] iv = new byte[16];<br/>
-              // 1 represents encryption ;0 represents decryption<br/>
+              // 1 represents encryption; 0 represents decryption<br/>
               int mode = 1;<br/>
               cipher.init(mode, key, iv);<br/><br/>
               String input = "hello world!";<br/>
