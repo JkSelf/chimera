@@ -44,7 +44,7 @@ public class ConfigurationKeys {
    * The configuration key of implementation class for crypto cipher.
    * The values of CHIMERA_CRYPTO_CIPHER_CLASSES_KEY can be
    * "com.intel.chimera.cipher.JceCipher" and "com.intel.chimera.cipher.OpensslCipher".
-   * And it takes a common separated list.
+   * And it takes a comma separated list.
    * The "com.intel.chimera.cipher.JceCipher" use jce provider to
    * implement {@link com.intel.chimera.cipher.Cipher} and
    * the "com.intel.chimera.cipher.OpensslCipher" use jni into openssl to implement.
@@ -95,7 +95,7 @@ public class ConfigurationKeys {
    * The configuration key of the implementation class for secure random.
    * The values of CHIMERA_CRYPTO_SECURE_RANDOM_CLASSES_KEY can be
    * "com.intel.chimera.random.JavaSecureRandom" and "com.intel.chimera.random.OpensslSecureRandom".
-   * And it takes a common separated list.
+   * And it takes a comma separated list.
    * The "com.intel.chimera.random.JavaSecureRandom" use java to
    * implement {@link com.intel.chimera.random.SecureRandom} and
    * the "com.intel.chimera.random.OpensslSecureRandom" use jni into openssl to implement.
