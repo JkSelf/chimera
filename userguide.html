@@ -227,7 +227,7 @@
         (Advanced Encryption
         Standard New Instructions). It provides Java API for both cipher level and Java stream
         level. Developers can use it to implement high performance AES encryption/decryption with
-        the minimum code and effort. Please note that Chimera doesn't implement the cryptographic
+        the minimum code and effort. Please note that Apache Commons Crypto doesn't implement the cryptographic
         algorithm such as AES directly. It wraps to Openssl or JCE which implement the algorithms.
       </p>
       
@@ -292,42 +292,98 @@
               
 <div class="section">
 <h4><a name="Usage_of_Random_API"></a>Usage of Random API</h4>
+              //Constructs a byte array to store random data.<br />
               byte[] data = new byte[16];<br />
               Properties properties = new Properties();<br />
-              // Default value is com.intel.chimera.random.JavaSecureRandom<br />
+              // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
               properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
-              SecureRandomFactory.getSecureRandom(properties).nextBytes(data);<br />
+              //Gets the 'SecureRandom' instance.<br />
+              SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(data);<br />
               </div>
 <div class="section">
-<h4><a name="Usage_of_Cipher_API"></a>Usage of Cipher API</h4>
+<h4><a name="Usage_of_Byte_Array_EncryptionDecryption"></a>Usage of Byte Array Encryption/Decryption</h4>
               Properties properties = new Properties();<br />
-              // Default value is com.intel.chimera.crypto.JceCipher<br />
+              // Default value is com.intel.chimera.crypto.JceCipher.<br />
               properties.setProperty(&quot;chimera.crypto.cipher.classes&quot;, &quot;com.intel.chimera.crypto.OpensslCipher,com.intel.chimera.crypto.JceCipher&quot;);<br />
               Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br /><br />
-              // Available key length is: 16, 24, 32 bytes<br />
+              Properties properties = new Properties();<br />
+              // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
+              properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
+              //Gets the 'SecureRandom' instance.<br />
+              SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
+              // Available key length is: 16, 24, 32 bytes.<br />
+              //Constructs the crypto key for cipher.<br />
               byte[] key = new byte[16];<br />
-              // IV length is always 16 bytes<br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(key);<br />
+              // IV length is always 16 bytes.<br />
+              //Constructs the crypto iv for cipher.<br />
               byte[] iv = new byte[16];<br />
-              // 1 represents encryption; 0 represents decryption<br />
-              int mode = 1;<br />
-              cipher.init(mode, key, iv);<br /><br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(iv);<br />
+              //Initializes the cipher with mode,key and iv.<br />
+              cipher.init(Cipher.ENCRYPT_MODE, key, iv);<br /><br />
               String input = &quot;hello world!&quot;;<br />
               int inputOffset = 0;<br />
               int inputLen = input.length();<br />
               byte[] output = new byte[1024];<br />
               int outputOffset = 0;<br />
-              cipher.update(input.getBytes(&quot;UTF-8&quot;), inputOffset, inputLen, output, outputOffset);<br /><br />
+              //Continues a multiple-part encryption/decryption operation for byte array.<br />
+              cipher.update(input.getBytes(&quot;UTF-8&quot;), inputOffset, inputLen, output, outputOffset);<br />
+              //We should call do final at the end of encryption/decryption.<br />
+              cipher.doFinal(inBuffer, outBuffer);<br />
+              </div>
+<div class="section">
+<h4><a name="Usage_of_ByteBuffer_EncryptionDecryption"></a>Usage of ByteBuffer Encryption/Decryption</h4>
+              Properties properties = new Properties();<br />
+              // Default value is com.intel.chimera.crypto.JceCipher.<br />
+              properties.setProperty(&quot;chimera.crypto.cipher.classes&quot;, &quot;com.intel.chimera.crypto.OpensslCipher,com.intel.chimera.crypto.JceCipher&quot;);<br />
+              Cipher cipher = Utils.getCipherInstance(CipherTransformation.AES_CTR_NOPADDING, properties);<br /><br />
+              Properties properties = new Properties();<br />
+              // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
+              properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
+              //Gets the 'SecureRandom' instance.<br />
+              SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
+              // Available key length is: 16, 24, 32 bytes.<br />
+              //Constructs the crypto key for cipher.<br />
+              byte[] key = new byte[16];<br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(key);<br />
+              // IV length is always 16 bytes.<br />
+              //Constructs the crypto iv for cipher.<br />
+              byte[] iv = new byte[16];<br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(iv);<br />
+              //Initializes the cipher with ENCRYPT_MODE,key and iv.<br />
+              cipher.init(Cipher.ENCRYPT_MODE, key, iv);<br /><br />
               int bufferSize = 4096;<br />
               ByteBuffer inBuffer = ByteBuffer.allocateDirect(bufferSize);<br />
               ByteBuffer outBuffer = ByteBuffer.allocateDirect(bufferSize);<br />
               inBuffer.put(&quot;The data you want to encrypt or decrypt&quot;.getBytes(&quot;UTF-8&quot;));<br />
+              //Continues a multiple-part encryption/decryption operation for byte array.<br />
               cipher.update(inBuffer, outBuffer);<br />
+              //We should call do final at the end of encryption/decryption.<br />
               cipher.doFinal(inBuffer, outBuffer);<br />
               </div>
 <div class="section">
 <h4><a name="Usage_of_Stream_API"></a>Usage of Stream API</h4>
+              Properties properties = new Properties();<br />
+              // Default value is com.intel.chimera.random.JavaSecureRandom.<br />
+              properties.setProperty(&quot;chimera.crypto.secure.random.classes&quot;, &quot;com.intel.chimera.random.OpensslSecureRandom,com.intel.chimera.random.OsSecureRandom&quot;);<br />
+              //Gets the 'SecureRandom' instance.<br />
+              SecureRandom secureRandom = SecureRandomFactory.getSecureRandom(properties);<br />
+              // Available key length is: 16, 24, 32 bytes.<br />
+              //Constructs the crypto key for cipher.<br />
               byte[] key = new byte[16];<br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(key);<br />
+              // IV length is always 16 bytes<br />
+              //Constructs the crypto iv for cipher.<br />
               byte[] iv = new byte[16];<br />
+              //Generates random bytes and places them into the byte array.<br />
+              secureRandom.nextBytes(iv);<br />
               int bufferSize = 4096;<br />
               String input = &quot;hello world!&quot;;<br />
               byte[] decryptedData = new byte[1024];<br />
