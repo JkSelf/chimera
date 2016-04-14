@@ -100,7 +100,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   *Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
+   * Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
    *
    * @param in the input stream.
    * @param cipher the Cipher instance.
@@ -115,7 +115,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   *Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
+   * Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
    *
    * @param in the ReadableByteChannel instance.
    * @param cipher the cipher instance.
@@ -217,7 +217,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   *Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
+   * Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
    *
    * @param input the input data.
    * @param cipher the Cipher instance.
@@ -499,7 +499,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   *Gets the counter for input stream position.
+   * Gets the counter for input stream position.
    *
    * @param position the given position in the data.
    * @return the counter for input stream position.
@@ -509,7 +509,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   *Gets the padding for input stream position.
+   * Gets the padding for input stream position.
    *
    * @param position the given position in the data.
    * @return the padding for input stream position.
@@ -519,7 +519,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   *Overrides the {@link CTRCryptoInputStream#initCipher()}.
+   * Overrides the {@link CTRCryptoInputStream#initCipher()}.
    * Initializes the cipher.
    */
   @Override
