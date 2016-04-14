@@ -72,7 +72,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
    *
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @param in the InputStream instance.
+   * @param in the input stream.
    * @param key crypto key for the cipher.
    * @param iv Initialization vector for the cipher.
    * @throws IOException if an I/O error occurs.
@@ -102,7 +102,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   /**
    *Constructs a {@link com.intel.chimera.stream.CTRCryptoInputStream}.
    *
-   * @param in the InputStream instance.
+   * @param in the input stream.
    * @param cipher the Cipher instance.
    * @param bufferSize the bufferSize.
    * @param key crypto key for the cipher.
@@ -209,7 +209,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
    * @param key crypto key for the cipher.
    * @param iv Initialization vector for the cipher.
    * @param streamOffset the start offset in the stream.
-   * @throws IOException c
+   * @throws IOException if an I/O error occurs.
    */
   public CTRCryptoInputStream(ReadableByteChannel in, Cipher cipher,
       int bufferSize, byte[] key, byte[] iv, long streamOffset) throws IOException {
@@ -330,8 +330,8 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   /**
    * Seeks the stream to a specific position relative to start of the under layer stream.
    * 
-   * @param position The position to seek.
-   * @throws IOException if seek failed
+   * @param position the given position in the data.
+   * @throws IOException if an I/O error occurs.
    */
   public void seek(long position) throws IOException {
     Utils.checkArgument(position >= 0, "Cannot seek to negative offset.");
@@ -354,7 +354,7 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   /**
    * Gets the offset of the stream.
    *
-   * @return the streamOffset
+   * @return the stream offset.
    */
   protected long getStreamOffset() {
     return streamOffset;
@@ -479,8 +479,8 @@ public class CTRCryptoInputStream extends CryptoInputStream {
    * This method is executed immediately after decryption. Checks whether
    * cipher should be updated and recalculate padding if needed.
    *
-   * @param position the position value.
-   * @return the
+   * @param position the given position in the data..
+   * @return the byte.
    */
   protected byte postDecryption(long position) throws IOException {
     byte padding = 0;
@@ -499,18 +499,20 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
+   *Gets the counter for input stream position.
    *
-   * @param position
-   * @return
+   * @param position the given position in the data.
+   * @return the counter for input stream position.
    */
   protected long getCounter(long position) {
     return position / cipher.getTransformation().getAlgorithmBlockSize();
   }
 
   /**
+   *Gets the padding for input stream position.
    *
-   * @param position
-   * @return
+   * @param position the given position in the data.
+   * @return the padding for input stream position.
    */
   protected byte getPadding(long position) {
     return (byte)(position % cipher.getTransformation().getAlgorithmBlockSize());
@@ -527,9 +529,9 @@ public class CTRCryptoInputStream extends CryptoInputStream {
   }
 
   /**
-   * Calculates the counter and iv, reset the cipher.
+   * Calculates the counter and iv, resets the cipher.
    *
-   * @param position the position value.
+   * @param position the given position in the data.
    * @throws IOException if an I/O error occurs.
    */
   protected void resetCipher(long position)
@@ -563,6 +565,12 @@ public class CTRCryptoInputStream extends CryptoInputStream {
     inBuffer.position(padding); // Set proper position for input data.
   }
 
+  /**
+   * Does the decryption using out as output.
+   *
+   * @param out the output ByteBuffer.
+   * @throws IOException if an I/O error occurs.
+   */
   protected void decryptBuffer(ByteBuffer out)
       throws IOException {
     int inputSize = inBuffer.remaining();

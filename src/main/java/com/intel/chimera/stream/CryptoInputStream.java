@@ -46,16 +46,28 @@ public class CryptoInputStream extends InputStream implements
     ReadableByteChannel {
   private final byte[] oneByteBuf = new byte[1];
 
+  /**The Cipher instance.*/
   protected final Cipher cipher;
+
+  /**The buffer size.*/
   protected final int bufferSize;
 
+  /**Crypto key for the cipher.*/
   protected final byte[] key;
+
+  /**The initial IV.*/
   protected final byte[] initIV;
+
+  /** Initialization vector for the cipher.*/
   protected byte[] iv;
 
+  /** Flag to mark whether the input stream is closed.*/
   protected boolean closed;
+
+  /** Flag to mark whether do final of the cipher to end the decrypting stream.*/
   protected boolean finalDone = false;
 
+  /**The input data.*/
   protected Input input;
 
   /**
@@ -76,7 +88,7 @@ public class CryptoInputStream extends InputStream implements
    * @param transformation the CipherTransformation instance.
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @param in the InputStream object.
+   * @param in the input stream.
    * @param key crypto key for the cipher.
    * @param iv Initialization vector for the cipher.
    * @throws IOException if an I/O error occurs.
@@ -110,7 +122,7 @@ public class CryptoInputStream extends InputStream implements
    * Constructs a {@link com.intel.chimera.stream.CryptoInputStream}.
    *
    * @param cipher the cipher instance.
-   * @param in the inputstream object.
+   * @param in the input stream.
    * @param bufferSize the bufferSize.
    * @param key crypto key for the cipher.
    * @param iv Initialization vector for the cipher.
@@ -139,7 +151,7 @@ public class CryptoInputStream extends InputStream implements
   /**
    * Constructs a {@link com.intel.chimera.stream.CryptoInputStream}.
    *
-   * @param input the Input data.
+   * @param input the input data.
    * @param cipher the cipher instance.
    * @param bufferSize the bufferSize.
    * @param key crypto key for the cipher.
@@ -353,7 +365,7 @@ public class CryptoInputStream extends InputStream implements
    *
    * @param dst The buffer into which bytes are to be transferred.
    * @return The number of bytes read, possibly zero, or <tt>-1</tt> if the
-   *          channel has reached end-of-stream.
+   *         channel has reached end-of-stream.
    * @throws IOException if an I/O error occurs.
    */
   @Override
@@ -411,7 +423,7 @@ public class CryptoInputStream extends InputStream implements
   }
 
   /**
-   * Get the internal Cipher.
+   * Gets the internal Cipher.
    *
    * @return the cipher instance.
    */

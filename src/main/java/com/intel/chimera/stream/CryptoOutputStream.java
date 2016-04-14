@@ -47,14 +47,25 @@ public class CryptoOutputStream extends OutputStream implements
     WritableByteChannel {
   private final byte[] oneByteBuf = new byte[1];
 
+  /** The output.*/
   protected Output output;
+
+  /**the Cipher instance*/
   protected final Cipher cipher;
+
+  /**The buffer size.*/
   protected final int bufferSize;
 
+  /**Crypto key for the cipher.*/
   protected final byte[] key;
+
+  /**The initial IV.*/
   protected final byte[] initIV;
+
+  /** Initialization vector for the cipher.*/
   protected byte[] iv;
 
+  /** Flag to mark whether the output stream is closed.*/
   protected boolean closed;
 
   /**
@@ -75,7 +86,7 @@ public class CryptoOutputStream extends OutputStream implements
    * @param transformation the CipherTransformation instance.
    * @param props The <code>Properties</code> class represents a set of
    *              properties.
-   * @param out the OutputStream instance.
+   * @param out the output stream.
    * @param key crypto key for the cipher.
    * @param iv Initialization vector for the cipher.
    * @throws IOException if an I/O error occurs.
@@ -108,7 +119,7 @@ public class CryptoOutputStream extends OutputStream implements
   /**
    * Constructs a {@link com.intel.chimera.stream.CryptoOutputStream}.
    *
-   * @param out the OutputStream instance.
+   * @param out the output stream.
    * @param cipher the Cipher instance.
    * @param bufferSize the bufferSize.
    * @param key crypto key for the cipher.
@@ -138,7 +149,7 @@ public class CryptoOutputStream extends OutputStream implements
   /**
    * Constructs a {@link com.intel.chimera.stream.CryptoOutputStream}.
    *
-   * @param output the Output instance.
+   * @param output the output stream.
    * @param cipher the Cipher instance.
    * @param bufferSize the bufferSize.
    * @param key crypto key for the cipher.
